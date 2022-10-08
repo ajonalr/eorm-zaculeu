@@ -63,25 +63,8 @@
                             </ul>
                         </li>
                         @endcanany
-                        <li class="sidebar-item">
-
-                            <a class="sidebar-link has-arrow waves-effect waves-dark selected" href="javascript:void(0)" aria-expanded="false">
-                                <i class="mr-3 mdi mdi-account" aria-hidden="true"></i>
-                                <span class="hide-menu">Productos</span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level">
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark " aria-expanded="false" href="{{route('product.index')}}">
-                                        <i class="mr-3 mdi mdi-account-multiple" aria-hidden="true"></i>
-                                        <span class="hide-menu">Products</span>
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                        </li>
 
                     </ul>
-
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>

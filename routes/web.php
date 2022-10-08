@@ -1,6 +1,4 @@
 <?php
-
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +31,4 @@ Route::group(['prefix' => "admin", 'as' => 'admin.', 'namespace' => 'App\Http\Co
 });
 
 
-Route::group(['prefix' => "product", 'middleware' => ['auth', 'AdminPanelAccess']], function () {
 
-    Route::get('index', [ProductController::class, 'index'])->name('product.index');
-    Route::get('store', [ProductController::class, 'store'])->name('product.store');
-    Route::get('show/{id}', [ProductController::class, 'show'])->name('product.show')->middleware('can:product_show');
-});

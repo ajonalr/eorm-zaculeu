@@ -52,7 +52,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         User::create($request->validated());
-        return redirect()->route('admin.users.index')->with(['status-success' => "New User Created"]);
+        return redirect()->route('users.index')->with(['status-success' => "New User Created"]);
     }
 
 
@@ -94,7 +94,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $user->update(array_filter($request->validated()));
-        return redirect()->route('admin.users.index')->with(['status-success' => "User Updated"]);
+        return redirect()->route('users.index')->with(['status-success' => "User Updated"]);
     }
 
 

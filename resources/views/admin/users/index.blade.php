@@ -7,7 +7,7 @@
 
         <div class="card-body">
             @can('user_create')
-            <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Add New User</a>
+            <a href="{{ route('users.create') }}" class="btn btn-primary">Add New User</a>
             @endcan
 
             <br /><br />
@@ -32,13 +32,13 @@
                             <td>{{$user->role->title ?? "--"}}</td>
                             <td>
                                     @can('user_show')
-                                        <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-sm btn-success">Show</a>
+                                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-success">Show</a>
                                     @endcan
                                     @can('user_edit')
-                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     @endcan
                                     @can('user_delete')
-                                <form action="{{ route('admin.users.destroy', $user->id) }}" class="d-inline-block" method="post">
+                                <form action="{{ route('users.destroy', $user->id) }}" class="d-inline-block" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</button>

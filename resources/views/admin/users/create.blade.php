@@ -6,7 +6,7 @@
         <div class="card-header">{{ __('Add New User') }}</div>
 
         <div class="card-body">
-            <form method="POST" action="{{ route('admin.users.store') }}">
+            <form method="POST" action="{{ route('users.store') }}">
                 @csrf
 
                 <div class="form-group row">

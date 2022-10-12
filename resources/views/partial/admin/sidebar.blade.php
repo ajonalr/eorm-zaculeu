@@ -15,30 +15,43 @@
                         <div class="dropdown open">
                             <a class="btn btn-secondary dropdown-toggle" type="button" id="GRADOS" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Gradosigno
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="GRADOS">
-                                    <a class="dropdown-item" href="{{route('grado.index')}}">LISTADO</a>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="GRADOS">
+                                <a class="dropdown-item" href="{{route('grado.index')}}">LISTADO</a>
 
 
-                                    @foreach (getGradosAll() as $g)
-                                    <a class="dropdown-item" href="{{route('grado.show', $g->id)}}">{{$g->nombre}}</a>
-                                    @endforeach
+                                @foreach (getGradosAll() as $g)
+                                <a class="dropdown-item" href="{{route('grado.show', $g->id)}}">{{$g->nombre}}</a>
+                                @endforeach
 
 
-                                    <a class="dropdown-item" href="{{route('grado.create')}}">Registro</a>
-                                </div>
+                                <a class="dropdown-item" href="{{route('grado.create')}}">Registro</a>
+                            </div>
                         </div>
 
                         <div class="dropdown open">
                             <a class="btn btn-secondary dropdown-toggle" type="button" id="profesor_dia" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 maestros
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="profesor_dia">
-                                    <a class="dropdown-item" href="{{route('profe.index')}}">LISTADO</a>
-                                    <a class="dropdown-item" href="{{route('profe.grado_profesor_view')}}">Asignar Grado</a>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="profesor_dia">
+                                <a class="dropdown-item" href="{{route('profe.index')}}">LISTADO</a>
+                                <a class="dropdown-item" href="{{route('profe.grado_profesor_view')}}">Asignar Grado</a>
 
-                                    <a class="dropdown-item" href="{{route('profe.create')}}">Registro</a>
-                                </div>
+                                <a class="dropdown-item" href="{{route('profe.create')}}">Registro</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown open">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="ESTUDIATES_ISD" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                        ESTUDIANTE
+                                    </button>
+                            <div class="dropdown-menu" aria-labelledby="ESTUDIATES_ISD">
+                                <a class="dropdown-item" href="{{route('estu.index')}}">inicio</a>
+                                <a class="dropdown-item" href="{{route('estu.inscribir')}}">inscribir</a>
+                                <a class="dropdown-item" href="{{route('estu.inscribir')}}">grados</a>
+                                
+                            </div>
                         </div>
 
 

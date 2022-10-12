@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\EstudianteController;
 use App\Http\Controllers\Admin\GradoController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PofesorController;
@@ -53,11 +54,23 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
         Route::post('save', 'store')->name('profe.save');
         Route::put('upadte/{id}', 'update')->name('profe.update');
         Route::delete('delete/{id}', 'delete')->name('profe.delete');
-
         Route::get('asignar-profesor', 'grado_profesor_view')->name('profe.grado_profesor_view');
         Route::post('asignar-profesave', 'grado_profesor')->name('profe.grado_profesor');
 
         
     });
+
+
+    Route::controller(EstudianteController::class)->prefix('estudiante')->group(function () {
+        Route::get('index', 'index')->name('estu.index');
+        Route::get('inscribir', 'inscribir')->name('estu.inscribir');
+        Route::post('store', 'store')->name('estudiante.store');
+        Route::get('perfil/{id}', 'show')->name('estu.show');
+        Route::put('upadte/{id}', 'update')->name('estu.update');
+        Route::delete('delete/{id}', 'delete')->name('estu.delete');
+    });
+
+
+    
 
 });

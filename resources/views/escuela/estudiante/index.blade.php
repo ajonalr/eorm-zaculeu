@@ -19,33 +19,33 @@
                     </div>
 
                     <div class="table-responsive   mb-5">
-                    
-                    <table class="table" id="table_id">
-                     <thead>
-                        <tr>
-                           <th>NOMBRE</th>
-                           <th>APELLIDO</th>
-                           <th>CUI</th>
-                           <th>TELEFONO</th>
-                           <th>GRADO</th>
-                           <th></th>
 
-                        </tr>
-                     </thead>
-                     <tbody>
-                        @foreach ($data as $d)
-                        <tr>
-                           <td>{{$d->nombre}}</td>
-                           <td>{{$d->apellido}}</td>
-                           <td>{{$d->cui}}</td>
-                           <td>{{$d->telefono}}</td>
-                           <td>{{$d->grado->nombre}}, Seccio: {{$d->grado->seccion}}</td>
-                           <td></td>
-                        </tr>
-                        @endforeach
-                        
-                     </tbody>
-                    </table>
+                        <table class="table" id="table_id">
+                            <thead>
+                                <tr>
+                                    <th>NOMBRE</th>
+                                    <th>APELLIDO</th>
+                                    <th>CUI</th>
+                                    <th>TELEFONO</th>
+                                    <th>GRADO</th>
+                                    <th></th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data as $d)
+                                <tr>
+                                    <td>{{$d->nombre}}</td>
+                                    <td>{{$d->apellido}}</td>
+                                    <td>{{$d->cui}}</td>
+                                    <td>{{$d->telefono}}</td>
+                                    <td>{{$d->grado->nombre}}, Seccio: {{$d->grado->seccion}}</td>
+                                    <td></td>
+                                </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
 
                     </div>
                 </div>

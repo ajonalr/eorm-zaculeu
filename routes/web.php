@@ -3,28 +3,19 @@
 use App\Http\Controllers\Admin\EstudianteController;
 use App\Http\Controllers\Admin\GradoController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\MateriaGradoController;
 use App\Http\Controllers\Admin\PofesorController;
+use App\Http\Controllers\Admin\TareasMateriaController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
-
 
 Route::resource('/users', UserController::class)->middleware('auth');
 Route::resource('/roles', 'RoleController')->middleware('auth');
@@ -34,8 +25,6 @@ Route::resource('/permissions', 'PermissionController')->except(['show'])->middl
 Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']], function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
-
-
 
     Route::controller(GradoController::class)->prefix('grados')->group(function () {
         Route::get('index', 'index')->name('grado.index');
@@ -60,7 +49,6 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
         
     });
 
-
     Route::controller(EstudianteController::class)->prefix('estudiante')->group(function () {
         Route::get('index', 'index')->name('estu.index');
         Route::get('inscribir', 'inscribir')->name('estu.inscribir');
@@ -69,6 +57,21 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
         Route::put('upadte/{id}', 'update')->name('estu.update');
         Route::delete('delete/{id}', 'delete')->name('estu.delete');
     });
+
+    Route::controller(MateriaGradoController::class)->prefix('materia-grado')->group(function () {
+        Route::get('index', 'index')->name('materiaG.index');
+        Route::get('create', 'create')->name('materiaG.create');
+        Route::post('store', 'store')->name('materiaG.store');
+        Route::get('perfil/{id}', 'show')->name('materiaG.show');
+        Route::put('upadte/{id}', 'update')->name('materiaG.update');
+        Route::delete('delete/{id}', 'delete')->name('materiaG.delete');
+    });
+
+    Route::controller(TareasMateriaController::class)->prefix('tareas-materas')->group(function () {
+        Route::post('store', 'store')->name('tareasM.store');
+      
+    });
+
 
 
     

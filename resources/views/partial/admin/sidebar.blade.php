@@ -54,6 +54,19 @@
                             </div>
                         </div>
 
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="MATERIAGRADOgAS" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                        MATERIAS
+                                    </button>
+                            <div class="dropdown-menu" aria-labelledby="MATERIAGRADOgAS">
+                                <a class="dropdown-item" href="{{route('materiaG.index')}}">LISTADO</a>
+                                <a class="dropdown-item" href="{{route('materiaG.create')}}">Registro</a>
+                                <a class="dropdown-item" href="#">Reportes</a>
+                                
+                            </div>
+                        </div>
+
 
 
                         @can('admin_panel_access')

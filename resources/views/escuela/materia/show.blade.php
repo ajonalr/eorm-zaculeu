@@ -22,6 +22,9 @@
                         <button class="nav-link active" id="v-pills-home-tab" data-toggle="pill" data-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">ACTUALIZAR</button>
                         <button class="nav-link" id="v-pills-profile-tab" data-toggle="pill" data-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">ASIGNAR CUADRO TOTAL</button>
 
+                        <button class="nav-link" id="v-pills-NOTASASIG-tab" data-toggle="pill" data-target="#v-pills-NOTASASIG" type="button" role="tab" aria-controls="v-pills-NOTASASIG" aria-selected="false">NOTAS FINALES</button>
+
+
 
                      </div>
                   </div>
@@ -54,8 +57,15 @@
 
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                           
-                        @include('escuela.materia.formregistrotareagrado')
+
+                           @include('escuela.materia.formregistrotareagrado')
+
+                        </div>
+
+
+                        <div class="tab-pane fade" id="v-pills-NOTASASIG" role="tabpanel" aria-labelledby="v-pills-NOTASASIG-tab">
+
+                           NOTAS ASIGNADAS
 
                         </div>
 

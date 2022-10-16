@@ -4,8 +4,8 @@ use App\Http\Controllers\Admin\EstudianteController;
 use App\Http\Controllers\Admin\GradoController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\MateriaGradoController;
+use App\Http\Controllers\Admin\NotaFinalMateriaController;
 use App\Http\Controllers\Admin\PofesorController;
-use App\Http\Controllers\Admin\TareasMateriaController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -67,8 +67,8 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
         Route::delete('delete/{id}', 'delete')->name('materiaG.delete');
     });
 
-    Route::controller(TareasMateriaController::class)->prefix('tareas-materas')->group(function () {
-        Route::post('store', 'store')->name('tareasM.store');
+    Route::controller(NotaFinalMateriaController::class)->prefix('nota-final')->group(function () {
+        Route::post('store', 'store')->name('notaFinal.store');
       
     });
 

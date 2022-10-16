@@ -1,11 +1,11 @@
 <p class="hq text-center">NUEVO CUADRO</p>
 
 
-<form action="{{route('tareasM.store')}}" method="post">
+<form action="{{route('notaFinal.store')}}" method="post">
    @csrf
 
-   <input type="text" value="{{$data->id}}" name="materia_id">
-   <input type="text" value="{{$data->grado_id}}" name="grado_id">
+   <input type="hidden" value="{{$data->id}}" name="materia_id">
+   <input type="hidden" value="{{$data->grado_id}}" name="grado_id">
 
    <div class="form-group">
       <label for="">NOMBRE</label>
@@ -13,14 +13,14 @@
    </div>
 
    <div class="form-group">
-      <label for="">VALOR DE TAREA</label>
+      <label for="">VALOR DE NOTA FINAL</label>
       <input type="text" class="form-control" name="valor">
    </div>
 
    <div class="form-group">
       <label for="">FECHA DE ENTREGA</label>
       <input type="date" class="form-control" name="entrega">
-   </div>
+   </div> 
 
    <div class="form-group">
       <label for="">BLOQUE</label>

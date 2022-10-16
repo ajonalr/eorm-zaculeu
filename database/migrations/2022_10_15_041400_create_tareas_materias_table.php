@@ -13,7 +13,7 @@ class CreateTareasMateriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tareas_materias', function (Blueprint $table) {
+        Schema::create('nota_final_tarea', function (Blueprint $table) {
             $table->id();
 
 

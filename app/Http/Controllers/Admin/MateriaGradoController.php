@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Grado;
 use App\Models\MateriaGrado;
+use App\Models\NotaFinalMateria;
 use Illuminate\Http\Request;
 
 class MateriaGradoController extends Controller
@@ -23,7 +24,49 @@ class MateriaGradoController extends Controller
     }
     public function store(Request $request)
     {
-        MateriaGrado::create($request->all());
+        $materia = MateriaGrado::create($request->all());
+
+
+        $nota = new NotaFinalMateria();
+        $nota->grado_id = $materia->grado_id;
+        $nota->materia_id = $materia->id;
+        $nota->nombre = 'NOTA FINAL DE BIMESTRE';
+        $nota->valor = 100;
+        $nota->bloque = 1;
+        $nota->estado = 'activo';
+        $nota->save();
+
+
+        $nota = new NotaFinalMateria();
+        $nota->grado_id = $materia->grado_id;
+        $nota->materia_id = $materia->id;
+        $nota->nombre = 'NOTA FINAL DE BIMESTRE';
+        $nota->valor = 100;
+        $nota->bloque = 2;
+        $nota->estado = 'activo';
+        $nota->save();
+
+
+        $nota = new NotaFinalMateria();
+        $nota->grado_id = $materia->grado_id;
+        $nota->materia_id = $materia->id;
+        $nota->nombre = 'NOTA FINAL DE BIMESTRE';
+        $nota->valor = 100;
+        $nota->bloque = 3;
+        $nota->estado = 'activo';
+        $nota->save();
+
+
+        $nota = new NotaFinalMateria();
+        $nota->grado_id = $materia->grado_id;
+        $nota->materia_id = $materia->id;
+        $nota->nombre = 'NOTA FINAL DE BIMESTRE';
+        $nota->valor = 100;
+        $nota->bloque = 4;
+        $nota->estado = 'activo';
+        $nota->save();
+
+
         return back()->with(['info' => 'materia guardado']);
     }
     public function update(Request $request, $id)
@@ -35,7 +78,8 @@ class MateriaGradoController extends Controller
     {
         $data = MateriaGrado::find($id);
         $grado = Grado::all();
-        return view('escuela.materia.show', compact('data', 'grado'));
+        $notas = NotaFinalMateria::where('materia_id', $id)->get();
+        return view('escuela.materia.show', compact('data', 'grado', 'notas'));
     }
     public function delete($id)
     {

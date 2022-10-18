@@ -21,7 +21,7 @@
 
 
                                 @foreach (getGradosAll() as $g)
-                                <a class="dropdown-item" href="{{route('grado.show', $g->id)}}">{{$g->nombre}}</a>
+                                <a class="dropdown-item" href="{{route('grado.show', $g->id)}}">{{$g->nombre}} / Seccion: {{$g->seccion}}</a>
                                 @endforeach
 
 

@@ -45,7 +45,38 @@
 
 
                         </div>
-                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+
+                           <div class="row">
+                              <div class="col-md-6 p-4">
+                                 <p class="text-center h5">MATERIAS</p>
+
+                                 <div class="list-group">
+
+                                    @foreach ($materias as $mate)
+                                    <a href="{{route('materiaG.show', $mate->id)}}" class="list-group-item list-group-item-action">{{$mate->nombre}}</a>
+                                    @endforeach
+
+                                 </div>
+
+                              </div>
+                              <div class="col-md-6 p-4">
+
+                                 <p class="text-center h5">PROFESORES</p>
+
+                                 <div class="list-group">
+
+                                    @foreach ($gp as $profe)
+                                    <a href="{{route('profe.show', $profe->profesor_id)}}" class="list-group-item list-group-item-action">{{$profe->profesor->nombre}}</a>
+                                    @endforeach
+
+                                 </div>
+
+                              </div>
+                           </div>
+
+                        </div>
 
                      </div>
                   </div>

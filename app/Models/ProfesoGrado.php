@@ -17,7 +17,7 @@ class ProfesoGrado extends Model
 
     public function profesor()
     {
-        return $this->hasOne('App\Models\Profesor', 'id', 'profesor_id');
+        return $this->hasOne('App\Models\Profeso', 'id', 'profesor_id');
     }
 
 }

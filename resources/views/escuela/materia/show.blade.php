@@ -65,7 +65,18 @@
 
                         <div class="tab-pane fade" id="v-pills-NOTASASIG" role="tabpanel" aria-labelledby="v-pills-NOTASASIG-tab">
 
-                           NOTAS ASIGNADAS
+                           <div class="list-group">
+                              @foreach ($notas as $nota)
+                              <p class="list-group-item list-group-item-action">{{$nota->nombre}}
+
+                                 <br>
+                                 Calificacion: {{$nota->valor}}
+
+                                 <br>
+                                 Bloque: {{$nota->bloque}}
+                              </p>
+                              @endforeach
+                           </div>
 
                         </div>
 

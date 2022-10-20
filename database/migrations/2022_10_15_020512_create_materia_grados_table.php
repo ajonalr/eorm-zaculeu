@@ -20,6 +20,10 @@ class CreateMateriaGradosTable extends Migration
             $table->bigInteger('grado_id')->unsigned();
             $table->foreign('grado_id')->references('id')->on('grado');
 
+
+            $table->bigInteger('profesor_id')->unsigned();
+            $table->foreign('profesor_id')->references('id')->on('profesos');
+
             $table->string('nombre', 50);
 
             $table->timestamps();

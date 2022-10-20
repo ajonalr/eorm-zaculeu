@@ -45,6 +45,11 @@
                      <input type="text" class="form-control" name="email">
                   </div>
 
+                  <div class="form-group">
+                     <label for="">CONTRASEÑA</label>
+                     <input type="password" class="form-control" name="contrasena">
+                  </div>
+
 
                   <button type="submit" class="btn btn-primary"> <i class="fas fa-save    "></i> GUARDAR</button>
 

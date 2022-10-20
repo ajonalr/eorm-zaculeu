@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Grado;
 use App\Models\MateriaGrado;
 use App\Models\NotaFinalMateria;
+use App\Models\Profeso;
 use Illuminate\Http\Request;
 
 class MateriaGradoController extends Controller
@@ -20,7 +21,8 @@ class MateriaGradoController extends Controller
     public function create()
     {
         $grado = Grado::all();
-        return view('escuela.materia.create', compact('grado'));
+        $profesores = Profeso::all();
+        return view('escuela.materia.create', compact('grado', 'profesores'));
     }
     public function store(Request $request)
     {

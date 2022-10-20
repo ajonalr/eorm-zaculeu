@@ -28,6 +28,14 @@
                      @endforeach
                   </select>
 
+
+                  <select name="profesor_id" id="profesor_id" class="mt-4">
+                     @foreach ($profesores as $p)
+                     <option value="{{$p->id}}">{{$p->nombre}} </option>
+                     @endforeach
+                  </select>
+
+
                   <button type="submit" class="btn btn-primary"><i class="fas fa-save    "></i> GUARDAR</button>
 
                </form>
@@ -48,10 +56,19 @@
 <script>
    new SlimSelect({
       select: '#grado',
+      placeholder: 'SELECCIONES GRADO',
+      deselectLabel: '<span>&times;</span>',
+      hideSelectedOption: true,
+   });
+
+   new SlimSelect({
+      select: '#profesor_id',
       placeholder: 'SELECCIONES PROFESOR',
       deselectLabel: '<span>&times;</span>',
       hideSelectedOption: true,
    });
+
+   
 </script>
 
 @endsection

@@ -20,6 +20,7 @@ class CreateProfesosTable extends Migration
             $table->json('cursos')->nullable();
             $table->string('cui')->nullable();
             $table->string('email')->nullable();
+            $table->string('contrasena')->nullable();
             $table->timestamps();
         });
     }

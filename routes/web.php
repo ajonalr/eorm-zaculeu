@@ -22,6 +22,20 @@ Route::resource('/roles', 'RoleController')->middleware('auth');
 Route::resource('/permissions', 'PermissionController')->except(['show'])->middleware('auth');
 
 
+// Login
+Route::get('/login-profe', [PofesorController::class, 'login'])->name('profe.login');
+Route::post('/login-profe', [PofesorController::class, 'authenticate'])->name('profe.authenticate');
+// logout
+Route::post('/logout-profe', [PofesorController::class, 'logout'])->name('profe.logout');
+
+Route::group(['prefix' => "profesor", 'middleware' => []], function () {
+    Route::get('/profe-califica', [PofesorController::class, 'calificar'])->name('profe.calificar');
+    Route::get('/profe-inicio', [PofesorController::class, 'homeProfe'])->name('profe.home');
+    Route::get('/grado-show/{grado_id}/{profe_id}', [PofesorController::class, 'getGradoProfe'])->name('profe.getGradoProfe');
+
+});
+
+
 
 Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']], function () {
 
@@ -46,8 +60,6 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
         Route::delete('delete/{id}', 'delete')->name('profe.delete');
         Route::get('asignar-profesor', 'grado_profesor_view')->name('profe.grado_profesor_view');
         Route::post('asignar-profesave', 'grado_profesor')->name('profe.grado_profesor');
-
-        
     });
 
     Route::controller(EstudianteController::class)->prefix('estudiante')->group(function () {
@@ -70,11 +82,5 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
 
     Route::controller(NotaFinalMateriaController::class)->prefix('nota-final')->group(function () {
         Route::post('store', 'store')->name('notaFinal.store');
-      
     });
-
-
-
-    
-
 });

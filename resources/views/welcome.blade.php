@@ -17,7 +17,9 @@
 
     <p class="text-center h4">{{config('app.name')}} <br>
 
-        <a href="{{route('login')}}" class="btn btn-outline-primary">LOGIN</a>
+        <a href="{{route('login')}}" class="btn btn-outline-primary">LOGIN ADMINISTRACION</a>
+        <a href="{{route('profe.login')}}" class="btn btn-outline-primary">LOGIN PROFESOR</a>
+
     </p>
 
     <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_CrFtpW.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>

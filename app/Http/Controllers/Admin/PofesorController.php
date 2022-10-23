@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Grado;
+use App\Models\MateriaGrado;
 use App\Models\Profeso;
 use App\Models\ProfesoGrado;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -13,45 +14,43 @@ use Illuminate\Support\Facades\Hash;
 
 class PofesorController extends Controller
 {
-    use AuthenticatesUsers;
 
-    protected $redirectTo = '/profe/home'; //Redirect after authenticate
-
-    public function __construct()
-    {
-        $this->middleware('guest:profe')->except('logout'); //Notice this middleware
-    }
-
-    public function showLoginForm() //Go web.php then you will find this route
+    public function login()
     {
         return view('profesor.login');
     }
 
-    public function login(Request $request) //Go web.php then you will find this route
+    public function authenticate(Request $request)
     {
-        $this->validateLogin($request);
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-        if ($this->attemptLogin($request)) {
-            return $this->sendLoginResponse($request);
+        $profe = Profeso::where('email', $request->email)->first();
+
+        if ($profe->password === $request->password) {
+
+            session(['profe_id' => $profe->id]);
+            session(['profe' => $profe]);
+
+            return redirect(route('profe.home'));
         }
 
-        return $this->sendFailedLoginResponse($request);
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
     }
 
-    public function logout(Request $request)
+    public function lgout(Request $request)
     {
-        $this->guard('profe')->logout();
+        Auth::logout();
 
         $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-        return redirect('/profe/login');
+        return redirect('/login');
     }
-
-    protected function guard() // And now finally this is our custom guard name
-    {
-        return Auth::guard('profe');
-    }
-
 
     // end login 
     public function index()
@@ -72,16 +71,18 @@ class PofesorController extends Controller
             'cursos' => $request->cursos,
             'nombre' => $request->nombre,
             'email' => $request->email,
-            'password' => Hash::make($request->contrasena),
+            'password' => $request->contrasena,
 
         ]);
         return back()->with(['info' => 'profesor guardado']);
     }
+
     public function update(Request $request, $id)
     {
         Profeso::find($id)->update($request->all());
         return back()->with(['info' => 'profesor guardado']);
     }
+
     public function show($id)
     {
         $g = Profeso::find($id);
@@ -89,12 +90,12 @@ class PofesorController extends Controller
         $grados = ProfesoGrado::where('profesor_id', $id)->get();
         return view('escuela.profesor.show', compact('g', 'grados'));
     }
+
     public function delete($id)
     {
         $g = Profeso::find($id)->delete();
         return back()->with(['info' => 'profesor eliminado']);
     }
-
 
     // retorna la vista para asignar un profesro a un grado
     public function grado_profesor_view()
@@ -114,6 +115,25 @@ class PofesorController extends Controller
 
     public function homeProfe()
     {
+        // TODO: NUTRIRI CON INFORMACION DEL PROFESOR
         return view('profesor.home');
+    }
+
+    public function calificar()
+    {
+        return view('profesor.calificar');
+    }
+
+    // retorna los grados asignados a un profesor
+    public function getGradoProfe($grado_id, $profe_id)
+    {
+        $grado = Grado::find($grado_id);
+        // materias de profesor 
+        $materias = MateriaGrado::where('profesor_id', $profe_id)->get();
+
+        // return view('profesor.showgrado', ['grados' => $grado, 'materias' => $materias]);
+        return view('profesor.showgrado', compact('grado', 'materias' ));
+
+
     }
 }

@@ -6,10 +6,54 @@ use App\Http\Controllers\Controller;
 use App\Models\Grado;
 use App\Models\Profeso;
 use App\Models\ProfesoGrado;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PofesorController extends Controller
 {
+    use AuthenticatesUsers;
+
+    protected $redirectTo = '/profe/home'; //Redirect after authenticate
+
+    public function __construct()
+    {
+        $this->middleware('guest:profe')->except('logout'); //Notice this middleware
+    }
+
+    public function showLoginForm() //Go web.php then you will find this route
+    {
+        return view('profesor.login');
+    }
+
+    public function login(Request $request) //Go web.php then you will find this route
+    {
+        $this->validateLogin($request);
+
+        if ($this->attemptLogin($request)) {
+            return $this->sendLoginResponse($request);
+        }
+
+        return $this->sendFailedLoginResponse($request);
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard('profe')->logout();
+
+        $request->session()->invalidate();
+
+        return redirect('/profe/login');
+    }
+
+    protected function guard() // And now finally this is our custom guard name
+    {
+        return Auth::guard('profe');
+    }
+
+
+    // end login 
     public function index()
     {
         $data = Profeso::all();
@@ -23,7 +67,14 @@ class PofesorController extends Controller
 
     public function store(Request $request)
     {
-        Profeso::create($request->all());
+        Profeso::create([
+            'puesto' => $request->puesto,
+            'cursos' => $request->cursos,
+            'nombre' => $request->nombre,
+            'email' => $request->email,
+            'password' => Hash::make($request->contrasena),
+
+        ]);
         return back()->with(['info' => 'profesor guardado']);
     }
     public function update(Request $request, $id)
@@ -59,5 +110,10 @@ class PofesorController extends Controller
     {
         ProfesoGrado::create($request->all());
         return back()->with(['info' => 'profesor guardado al grado']);
+    }
+
+    public function homeProfe()
+    {
+        return view('profesor.home');
     }
 }

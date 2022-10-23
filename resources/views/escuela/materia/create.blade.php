@@ -19,7 +19,7 @@
 
                   <div class="form-group">
                      <label for="">NOMBRE DE MATERIA</label>
-                     <input type="text" class="form-control" name="nombre">
+                     <input type="text" class="form-control" name="nombre" required>
                   </div>
 
                   <select name="grado_id" id="grado" class="mt-4">
@@ -29,7 +29,8 @@
                   </select>
 
 
-                  <select name="profesor_id" id="profesor_id" class="mt-4">
+                  <select name="profesor_id" id="profesor_id" class="mt-4" required>
+                     <option >SELECCIONE PROFESOR </option>
                      @foreach ($profesores as $p)
                      <option value="{{$p->id}}">{{$p->nombre}} </option>
                      @endforeach
@@ -67,8 +68,6 @@
       deselectLabel: '<span>&times;</span>',
       hideSelectedOption: true,
    });
-
-   
 </script>
 
 @endsection

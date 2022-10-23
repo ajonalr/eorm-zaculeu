@@ -22,6 +22,7 @@ Route::resource('/roles', 'RoleController')->middleware('auth');
 Route::resource('/permissions', 'PermissionController')->except(['show'])->middleware('auth');
 
 
+
 Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']], function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('home');

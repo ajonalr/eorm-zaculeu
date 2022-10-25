@@ -11,6 +11,8 @@ class NotaEstudiente extends Model
 
     public $guarded = [];
 
+    protected $table = 'nota_estudientes';
+
     public function estudiante()
     {
         return $this->hasOne('App\Models\Estudiante', 'id', 'estudiante_id');

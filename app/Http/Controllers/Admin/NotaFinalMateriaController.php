@@ -64,6 +64,7 @@ class NotaFinalMateriaController extends Controller
         $tareas = null;
         if ($request->bimestre) {
             $vis2 = true;
+            $vis = false;
             $tareas = DB::table('nota_final_tarea')
                 ->where(
                     [
@@ -79,7 +80,7 @@ class NotaFinalMateriaController extends Controller
         if ($request->nota_final_id) {
             $vis = true;
             $vis2 = false;
-            $calificar = NotaEstudiente::where('nota_final_id', $request->nota_final_id)->get();
+            $calificar = NotaEstudiente::where('nota_final_id', '=',$request->nota_final_id)->get();
         }
         // dd($tareas);
         return view('profesor.calificar', compact('tareas', 'vis', 'calificar', 'vis2'));

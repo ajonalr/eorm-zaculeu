@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Estudiante;
 use App\Models\Grado;
 use App\Models\MateriaGrado;
+use App\Models\NotaEstudiente;
 use App\Models\NotaFinalMateria;
 use App\Models\Profeso;
 use Illuminate\Http\Request;
@@ -29,44 +31,78 @@ class MateriaGradoController extends Controller
         $materia = MateriaGrado::create($request->all());
 
 
-        $nota = new NotaFinalMateria();
-        $nota->grado_id = $materia->grado_id;
-        $nota->materia_id = $materia->id;
-        $nota->nombre = 'NOTA FINAL DE BIMESTRE';
-        $nota->valor = 100;
-        $nota->bloque = 1;
-        $nota->estado = 'activo';
-        $nota->save();
+        $nota1 = new NotaFinalMateria();
+        $nota1->grado_id = $materia->grado_id;
+        $nota1->materia_id = $materia->id;
+        $nota1->nombre = 'NOTA FINAL DE BIMESTRE';
+        $nota1->valor = 0;
+        $nota1->bloque = 1;
+        $nota1->estado = 'activo';
+        $nota1->save();
 
 
-        $nota = new NotaFinalMateria();
-        $nota->grado_id = $materia->grado_id;
-        $nota->materia_id = $materia->id;
-        $nota->nombre = 'NOTA FINAL DE BIMESTRE';
-        $nota->valor = 100;
-        $nota->bloque = 2;
-        $nota->estado = 'activo';
-        $nota->save();
+        $nota2 = new NotaFinalMateria();
+        $nota2->grado_id = $materia->grado_id;
+        $nota2->materia_id = $materia->id;
+        $nota2->nombre = 'NOTA FINAL DE BIMESTRE';
+        $nota2->valor = 0;
+        $nota2->bloque = 2;
+        $nota2->estado = 'activo';
+        $nota2->save();
 
 
-        $nota = new NotaFinalMateria();
-        $nota->grado_id = $materia->grado_id;
-        $nota->materia_id = $materia->id;
-        $nota->nombre = 'NOTA FINAL DE BIMESTRE';
-        $nota->valor = 100;
-        $nota->bloque = 3;
-        $nota->estado = 'activo';
-        $nota->save();
+        $nota3 = new NotaFinalMateria();
+        $nota3->grado_id = $materia->grado_id;
+        $nota3->materia_id = $materia->id;
+        $nota3->nombre = 'NOTA FINAL DE BIMESTRE';
+        $nota3->valor = 0;
+        $nota3->bloque = 3;
+        $nota3->estado = 'activo';
+        $nota3->save();
 
 
-        $nota = new NotaFinalMateria();
-        $nota->grado_id = $materia->grado_id;
-        $nota->materia_id = $materia->id;
-        $nota->nombre = 'NOTA FINAL DE BIMESTRE';
-        $nota->valor = 100;
-        $nota->bloque = 4;
-        $nota->estado = 'activo';
-        $nota->save();
+        $nota4 = new NotaFinalMateria();
+        $nota4->grado_id = $materia->grado_id;
+        $nota4->materia_id = $materia->id;
+        $nota4->nombre = 'NOTA FINAL DE BIMESTRE';
+        $nota4->valor = 0;
+        $nota4->bloque = 4;
+        $nota4->estado = 'activo';
+        $nota4->save();
+        $estudiante = Estudiante::where('grado_id', $request->grado_id)->get();
+
+        foreach ($estudiante as $es) {
+            NotaEstudiente::create([
+                'estudiante_id' => $es->id,
+                'nota_final_id' => $nota1->id,
+                'calificacion' => 0
+            ]);
+        }
+
+        foreach ($estudiante as $es) {
+            NotaEstudiente::create([
+                'estudiante_id' => $es->id,
+                'nota_final_id' => $nota2->id,
+                'calificacion' => 0
+            ]);
+        }
+
+        foreach ($estudiante as $es) {
+            NotaEstudiente::create([
+                'estudiante_id' => $es->id,
+                'nota_final_id' => $nota3->id,
+                'calificacion' => 0
+            ]);
+        }
+
+        foreach ($estudiante as $es) {
+            NotaEstudiente::create([
+                'estudiante_id' => $es->id,
+                'nota_final_id' => $nota4->id,
+                'calificacion' => 0
+            ]);
+        }
+
 
 
         return back()->with(['info' => 'materia guardado']);

@@ -32,7 +32,11 @@ Route::group(['prefix' => "profesor", 'middleware' => []], function () {
     Route::get('/profe-califica', [PofesorController::class, 'calificar'])->name('profe.calificar');
     Route::get('/profe-inicio', [PofesorController::class, 'homeProfe'])->name('profe.home');
     Route::get('/grado-show/{grado_id}/{profe_id}', [PofesorController::class, 'getGradoProfe'])->name('profe.getGradoProfe');
+    Route::post('nueva-nota', [NotaFinalMateriaController::class, 'sttoreAndAssignEstudiente'])->name('nota.sttoreAndAssignEstudiente');
 
+    Route::get('tareas/{grado_id}/{materia_id}', [NotaFinalMateriaController::class, 'findNotaFintalToGradoAndMateria'])->name('nota.findNotaFintalToGradoAndMateria');
+
+    
 });
 
 

@@ -31,12 +31,27 @@
                   </span>
                </a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" href="#">CALIFICAR</a>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="CALIFICARDROPDOWN" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  CALIFICAR
+               </a>
+               <div class="dropdown-menu" aria-labelledby="CALIFICARDROPDOWN">
+                  @foreach (getGradosToProfesor(session()->get('profe_id')) as $grados )
+                  <b style="margin-left: 5px;">{{$grados->grado->nombre}}, {{$grados->grado->seccion}}</b>
+
+                  @foreach (getAllMateriasProfesor(session()->get('profe_id'), $grados->id) as $materias)
+                  <a class="dropdown-item" href="{{route('nota.findNotaFintalToGradoAndMateria', ['grado_id'=> $grados->id, 'materia_id'=> $materias->id]  )}}">
+                     {{$materias->nombre}}
+                  </a>
+                  @endforeach
+
+                  @endforeach
+
+               </div>
             </li>
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  GRADOS ASIGANADOS
+                  NUEVA TAREA
                </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   @foreach (getGradosToProfesor(session()->get('profe_id')) as $grados )
@@ -53,6 +68,13 @@
       </div>
    </nav>
 
+   <div class="container">
+      <div class="row">
+         <div class="col">
+            @include('partial.alert')
+         </div>
+      </div>
+   </div>
 
    @yield('content')
 

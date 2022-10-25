@@ -129,11 +129,12 @@ class PofesorController extends Controller
     {
         $grado = Grado::find($grado_id);
         // materias de profesor 
-        $materias = MateriaGrado::where('profesor_id', $profe_id)->get();
+        $materias =
+            MateriaGrado::where('profesor_id', $profe_id)
+            ->where('grado_id', $grado_id)
+            ->get();
 
         // return view('profesor.showgrado', ['grados' => $grado, 'materias' => $materias]);
-        return view('profesor.showgrado', compact('grado', 'materias' ));
-
-
+        return view('profesor.showgrado', compact('grado', 'materias'));
     }
 }

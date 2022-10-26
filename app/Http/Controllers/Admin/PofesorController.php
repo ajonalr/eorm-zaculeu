@@ -42,14 +42,14 @@ class PofesorController extends Controller
         ]);
     }
 
-    public function lgout(Request $request)
+    public function logout(Request $request)
     {
-        Auth::logout();
-
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        $request->session()->flush();
+
+        return redirect('/');
     }
 
     // end login 

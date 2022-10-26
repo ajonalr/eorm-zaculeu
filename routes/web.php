@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BoletinController;
 use App\Http\Controllers\Admin\EstudianteController;
 use App\Http\Controllers\Admin\GradoController;
 use App\Http\Controllers\Admin\HomeController;
@@ -73,6 +74,11 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
         Route::get('perfil/{id}', 'show')->name('estu.show');
         Route::put('upadte/{id}', 'update')->name('estu.update');
         Route::delete('delete/{id}', 'delete')->name('estu.delete');
+    });
+
+    Route::controller(BoletinController::class)->prefix('boletines')->group(function () {
+        Route::get('boletines', 'boletines')->name('bole.boletines');
+        Route::get('boleti/{id}', 'boletin')->name('bole.boletin');       
     });
 
     Route::controller(MateriaGradoController::class)->prefix('materia-grado')->group(function () {

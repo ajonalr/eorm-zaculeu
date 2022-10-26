@@ -23,14 +23,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-               <a class="nav-link" href="#">
-                  PERFIL
-                  <span class="sr-only">
-                     <?php echo session()->get('profe')['nombre']; ?>
-                  </span>
-               </a>
-            </li>
+
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="CALIFICARDROPDOWN" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   CALIFICAR
@@ -59,6 +52,14 @@
                   @endforeach
 
                </div>
+            </li>
+
+            <li class="nav-item active">
+               <form method="POST" action="{{route('profe.logout')}}">
+                  @csrf
+                  <button type="submit" class="btn btn-info">SALIR</button>
+
+               </form>
             </li>
 
          </ul>

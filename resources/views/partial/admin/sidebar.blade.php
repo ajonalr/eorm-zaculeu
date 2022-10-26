@@ -14,7 +14,7 @@
 
                         <div class="dropdown open">
                             <a class="btn btn-secondary dropdown-toggle" type="button" id="GRADOS" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Gradosigno
+                                Grados
                             </a>
                             <div class="dropdown-menu" aria-labelledby="GRADOS">
                                 <a class="dropdown-item" href="{{route('grado.index')}}">LISTADO</a>
@@ -49,7 +49,8 @@
                             <div class="dropdown-menu" aria-labelledby="ESTUDIATES_ISD">
                                 <a class="dropdown-item" href="{{route('estu.index')}}">inicio</a>
                                 <a class="dropdown-item" href="{{route('estu.inscribir')}}">inscribir</a>
-                                <a class="dropdown-item" href="{{route('estu.inscribir')}}">grados</a>
+                                <a class="dropdown-item" href="{{route('bole.boletines')}}">Boletines</a>
+                                <a class="dropdown-item" href="{{route('estu.inscribir')}}">REPORTES</a>
                                 
                             </div>
                         </div>

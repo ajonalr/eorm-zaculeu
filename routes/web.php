@@ -36,7 +36,7 @@ Route::group(['prefix' => "profesor", 'middleware' => []], function () {
 
     Route::get('tareas/{grado_id}/{materia_id}', [NotaFinalMateriaController::class, 'findNotaFintalToGradoAndMateria'])->name('nota.findNotaFintalToGradoAndMateria');
 
-    
+    Route::put('califica/{id}', [NotaFinalMateriaController::class, 'calificar'])->name('profe.calificarnOTA');
 });
 
 

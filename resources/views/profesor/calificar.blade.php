@@ -64,11 +64,13 @@
                         <td>{{$t->calificacion}}</td>
                         <td>
 
-                           <form action="">
+                           <form action="{{route('profe.calificarnOTA', $t->id)}}" method="POST">
+                              @csrf
+                              @method('PUT')
 
                               <div class="form-group">
                                  <label for="">CALIFICACION</label>
-                                 <input type="number" steep="any" class="form-control form-control-sm " name="calificacion">
+                                 <input type="number" steep="any" value="{{$t->calificacion}}" class="form-control form-control-sm " name="calificacion">
 
                               </div>
 

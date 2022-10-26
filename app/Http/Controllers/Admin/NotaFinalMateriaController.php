@@ -80,9 +80,16 @@ class NotaFinalMateriaController extends Controller
         if ($request->nota_final_id) {
             $vis = true;
             $vis2 = false;
-            $calificar = NotaEstudiente::where('nota_final_id', '=',$request->nota_final_id)->get();
+            $calificar = NotaEstudiente::where('nota_final_id', '=', $request->nota_final_id)->get();
         }
         // dd($tareas);
         return view('profesor.calificar', compact('tareas', 'vis', 'calificar', 'vis2'));
+    }
+
+    public function calificar($id, Request $request)
+    {
+        NotaEstudiente::find($id)->update($request->all());
+
+        return back()->with(['info' => 'datos guardados con exit', 'color' => 'success']);
     }
 }

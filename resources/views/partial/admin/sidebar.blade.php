@@ -17,7 +17,7 @@
                                 Grados
                             </a>
                             <div class="dropdown-menu" aria-labelledby="GRADOS">
-                                <a class="dropdown-item" href="{{route('grado.index')}}">LISTADO</a>
+                                <a class="dropdown-item" href="">LISTADO</a>
 
 
                                 @foreach (getGradosAll() as $g)
@@ -36,35 +36,21 @@
                             <div class="dropdown-menu" aria-labelledby="profesor_dia">
                                 <a class="dropdown-item" href="{{route('profe.index')}}">LISTADO</a>
                                 <a class="dropdown-item" href="{{route('profe.grado_profesor_view')}}">Asignar Grado</a>
-
                                 <a class="dropdown-item" href="{{route('profe.create')}}">Registro</a>
                             </div>
                         </div>
 
-                        <div class="dropdown open">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="ESTUDIATES_ISD" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                        ESTUDIANTE
-                                    </button>
-                            <div class="dropdown-menu" aria-labelledby="ESTUDIATES_ISD">
-                                <a class="dropdown-item" href="{{route('estu.index')}}">inicio</a>
-                                <a class="dropdown-item" href="{{route('estu.inscribir')}}">inscribir</a>
-                                <a class="dropdown-item" href="{{route('bole.boletines')}}">Boletines</a>
-                                <a class="dropdown-item" href="{{route('estu.inscribir')}}">REPORTES</a>
-                                
-                            </div>
-                        </div>
+                       
 
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="MATERIAGRADOgAS" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                        MATERIAS
-                                    </button>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="MATERIAGRADOgAS" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MATERIAS
+                            </button>
                             <div class="dropdown-menu" aria-labelledby="MATERIAGRADOgAS">
                                 <a class="dropdown-item" href="{{route('materiaG.index')}}">LISTADO</a>
                                 <a class="dropdown-item" href="{{route('materiaG.create')}}">Registro</a>
                                 <a class="dropdown-item" href="#">Reportes</a>
-                                
+
                             </div>
                         </div>
 
@@ -96,7 +82,7 @@
                             ">
                                 @can('users_access')
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif" href="{{ route('users.index') }}" aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif" href="" aria-expanded="false">
                                         <i class="mr-3 mdi mdi-account-multiple" aria-hidden="true"></i>
                                         <span class="hide-menu">Users</span>
                                     </a>
@@ -105,7 +91,7 @@
 
                                 @can('roles_access')
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/roles') || request()->is('admin/roles/*')) is_active @endif" href="{{ route('roles.index') }}" aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/roles') || request()->is('admin/roles/*')) is_active @endif" href="" aria-expanded="false">
                                         <i class="mr-3 mdi mdi-star" aria-hidden="false"></i>
                                         <span class="hide-menu">Roles</span>
                                     </a>
@@ -114,7 +100,7 @@
 
                                 @can('permissions_access')
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/permissions') || request()->is('admin/permissions/*')) is_active @endif" href="{{ route('permissions.index') }}" aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/permissions') || request()->is('admin/permissions/*')) is_active @endif" href="" aria-expanded="false">
                                         <i class="mr-3 mdi mdi-key" aria-hidden="false"></i>
                                         <span class="hide-menu">Permissions</span>
                                     </a>

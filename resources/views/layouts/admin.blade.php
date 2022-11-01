@@ -54,7 +54,8 @@
                                 <div class="page-wrapper">
                                     <!-- Page-body start -->
                                     <div class="page-body button-page">
-                                            @yield('content')
+                                        @include('partial.alert')
+                                        @yield('content')
                                     </div>
                                 </div>
                             </div>

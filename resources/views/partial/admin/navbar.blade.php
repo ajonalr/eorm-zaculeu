@@ -70,7 +70,7 @@
                   </a>
                </li>
                <li class=" ">
-                  <a href="{{route('estu.inscribir')}}" class="waves-effect waves-dark">
+                  <a href="{{route('estu.reportes')}}" class="waves-effect waves-dark">
                      <span class="pcoded-micon"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
                      <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">REPORTES</span>
                      <span class="pcoded-mcaret"></span>

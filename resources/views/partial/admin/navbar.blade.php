@@ -101,6 +101,13 @@
                      <span class="pcoded-mcaret"></span>
                   </a>
                </li>
+               <li class=" ">
+                  <a href="{{route('grado.reporte')}}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
+                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">REPORTE</span>
+                     <span class="pcoded-mcaret"></span>
+                  </a>
+               </li>
                @foreach (getGradosAll() as $g)
                <li class=" ">
                   <a href="{{route('grado.show', $g->id)}}" class="waves-effect waves-dark">
@@ -141,6 +148,13 @@
                      <span class="pcoded-mcaret"></span>
                   </a>
                </li>
+               <li class=" ">
+                  <a href="{{route('profe.reporte')}}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
+                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">REPORTE</span>
+                     <span class="pcoded-mcaret"></span>
+                  </a>
+               </li>
             </ul>
          </li>
 
@@ -165,13 +179,13 @@
                      <span class="pcoded-mcaret"></span>
                   </a>
                </li>
-               <li class=" ">
+               <!-- <li class=" ">
                   <a href="#" class="waves-effect waves-dark">
                      <span class="pcoded-micon"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
                      <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">REPORTES</span>
                      <span class="pcoded-mcaret"></span>
                   </a>
-               </li>
+               </li> -->
             </ul>
          </li>
 

@@ -54,6 +54,7 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
         Route::post('save', 'store')->name('grado.save');
         Route::put('upadte/{id}', 'update')->name('grado.update');
         Route::delete('delete/{id}', 'delete')->name('grado.delete');
+        Route::get('reporte', 'reporte')->name('grado.reporte');
     });
 
     Route::controller(PofesorController::class)->prefix('maestro')->group(function () {
@@ -65,6 +66,7 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
         Route::delete('delete/{id}', 'delete')->name('profe.delete');
         Route::get('asignar-profesor', 'grado_profesor_view')->name('profe.grado_profesor_view');
         Route::post('asignar-profesave', 'grado_profesor')->name('profe.grado_profesor');
+        Route::get('reporte', 'reporte')->name('profe.reporte');
     });
 
     Route::controller(EstudianteController::class)->prefix('estudiante')->group(function () {

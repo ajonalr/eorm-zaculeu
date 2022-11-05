@@ -137,4 +137,10 @@ class PofesorController extends Controller
         // return view('profesor.showgrado', ['grados' => $grado, 'materias' => $materias]);
         return view('profesor.showgrado', compact('grado', 'materias'));
     }
+
+    public function reporte()
+    {
+        $data = Profeso::all();
+        return view('escuela.profesor.reporte', compact('data'));
+    }
 }

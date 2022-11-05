@@ -54,4 +54,10 @@ class GradoController extends Controller
         $g = Grado::find($id)->delete();
         return back()->with(['info' => 'grado eliminado']);
     }
+
+    public function reporte()
+    {
+        $data = Grado::all();
+        return view('escuela.grado.reporte', compact('data'));
+    }
 }

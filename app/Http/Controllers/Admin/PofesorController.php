@@ -116,7 +116,10 @@ class PofesorController extends Controller
     public function homeProfe()
     {
         // TODO: NUTRIRI CON INFORMACION DEL PROFESOR
-        return view('profesor.home');
+
+        $fata = MateriaGrado::where('profesor_id', session()->get('profe_id'))
+            ->get();
+        return view('profesor.home', compact('fata'));
     }
 
     public function calificar()

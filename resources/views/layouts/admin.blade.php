@@ -26,6 +26,13 @@
         .btn {
             margin: 2.5px;
         }
+
+        .page-header {
+            position: relative;
+            border-radius: 0;
+            color: #fff;
+            background-color: #1d1d1d;
+        }
     </style>
     @yield('styles')
 </head>

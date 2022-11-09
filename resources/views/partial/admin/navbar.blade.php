@@ -43,7 +43,9 @@
 
          <li class="pcoded-hasmenu">
             <a href="javascript:void(0)" class="waves-effect waves-dark">
-               <span class="pcoded-micon"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
+               <span class="pcoded-micon"> 
+                  <i class="fas fa-user-graduate    "></i>
+               </span>
                <span class="pcoded-mtext" data-i18n="nav.basic-components.main">ESTUDIANTE</span>
                <span class="pcoded-mcaret"></span>
             </a>
@@ -81,7 +83,7 @@
 
          <li class="pcoded-hasmenu">
             <a href="javascript:void(0)" class="waves-effect waves-dark">
-               <span class="pcoded-micon"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
+               <span class="pcoded-micon"><i class="fas fa-book    "></i></span>
                <span class="pcoded-mtext" data-i18n="nav.basic-components.main">GRADOS</span>
                <span class="pcoded-mcaret"></span>
             </a>
@@ -122,7 +124,7 @@
 
          <li class="pcoded-hasmenu">
             <a href="javascript:void(0)" class="waves-effect waves-dark">
-               <span class="pcoded-micon"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
+               <span class="pcoded-micon"><i class="fa fa-user-secret" aria-hidden="true"></i></span>
                <span class="pcoded-mtext" data-i18n="nav.basic-components.main">MAESTROS</span>
                <span class="pcoded-mcaret"></span>
             </a>
@@ -160,7 +162,7 @@
 
          <li class="pcoded-hasmenu">
             <a href="javascript:void(0)" class="waves-effect waves-dark">
-               <span class="pcoded-micon"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
+               <span class="pcoded-micon"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
                <span class="pcoded-mtext" data-i18n="nav.basic-components.main">MATERIAS</span>
                <span class="pcoded-mcaret"></span>
             </a>
@@ -192,7 +194,7 @@
 
          <li class="pcoded-hasmenu">
             <a href="javascript:void(0)" class="waves-effect waves-dark">
-               <span class="pcoded-micon"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
+               <span class="pcoded-micon"><i class="fa fa-users" aria-hidden="true"></i></span>
                <span class="pcoded-mtext" data-i18n="nav.basic-components.main">USUARIOS</span>
                <span class="pcoded-mcaret"></span>
             </a>

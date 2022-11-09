@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Estudiante;
+use App\Models\Profeso;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $estu = Estudiante::count();
+        $profe = Profeso::count();
+        $user = User::count();
+
+        return view('admin.home', compact('estu', 'profe', 'user'));
     }
 }

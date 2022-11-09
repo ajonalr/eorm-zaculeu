@@ -30,13 +30,14 @@
                </a>
                <div class="dropdown-menu" aria-labelledby="CALIFICARDROPDOWN">
                   @foreach (getGradosToProfesor(session()->get('profe_id')) as $grados )
-                  <b style="margin-left: 5px;">{{$grados->grado->nombre}}, {{$grados->grado->seccion}}</b>
+                  <b style="margin-left: 5px;">{{$grados->grado->nombre}}, {{$grados->grado->seccion}}</b>                
+                  
 
-                  @foreach (getAllMateriasProfesor(session()->get('profe_id'), $grados->id) as $materias)
-                  <a class="dropdown-item" href="{{route('nota.findNotaFintalToGradoAndMateria', ['grado_id'=> $grados->id, 'materia_id'=> $materias->id]  )}}">
-                     {{$materias->nombre}}
-                  </a>
-                  @endforeach
+                     @foreach (getAllMateriasProfesor(session()->get('profe_id'), $grados->grado_id) as $materias)
+                     <a class="dropdown-item" href="{{route('nota.findNotaFintalToGradoAndMateria', ['grado_id'=> $grados->grado_id, 'materia_id'=> $materias->id]  )}}">
+                        {{$materias->nombre}}
+                     </a>
+                     @endforeach
 
                   @endforeach
 

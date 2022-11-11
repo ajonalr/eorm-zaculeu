@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\MateriaGradoController;
 use App\Http\Controllers\Admin\NotaFinalMateriaController;
 use App\Http\Controllers\Admin\PofesorController;
 use App\Http\Controllers\Admin\UserController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,17 @@ Auth::routes();
 Route::resource('/users', UserController::class)->middleware('auth');
 Route::resource('/roles', 'RoleController')->middleware('auth');
 Route::resource('/permissions', 'PermissionController')->except(['show'])->middleware('auth');
+
+// rauta para ejecutar comando artisan desde la web
+Route::get('artisan/{comando}/{contra}', function ($comando, $contra) {
+    if ($contra === 'Taylor110eAA.') {
+        // ejemplo www.decodev.net/cmd/migrate
+        Artisan::call($comando);
+        dd(Artisan::output());
+    } else {
+        echo 'NO ACCESO';
+    }
+});
 
 
 // Login
